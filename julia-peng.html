@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Julia Peng</title>
-</head>
+
 <style>
 
     body {margin: 0px;}
@@ -25,7 +25,7 @@
 
 
     .one {width: 150px; text-align: left; border-bottom: 1px solid #D1C7D1;}
-
+    
     table {border-collapse: collapse;}
     th, td {width: 250px; text-align: left; border-bottom: 1px solid #D1C7D1;}
 
@@ -35,9 +35,11 @@
     
 
 </style>
+</head>
 
 <body>
 
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <div class="container">
         <div style="width:60%;height:100vh;float:left;text-align:center;background-color:#000000">
             <br><br><br><br><br>
@@ -90,10 +92,6 @@
 
     </a></div>
 
-
-
-
-
     <div class="container"><a id="second" >
 
         <div class="container" style="text-indent: 25px; width:100%; height:10vh; float:left; text-align:left;background-color:#FFF2F2">
@@ -118,10 +116,19 @@
 
     </a></div>
 
+    <div class="container"><a id="" >
+
+        <div class="container" style="text-indent: 25px; width:100%; height:10vh; float:left; text-align:left;background-color:#FFF2F2">
+            <h1>數據統計 Statistics About Julia Peng</h1>
+        </div>
+            
+        <div style="width:100%;height:90vh;float:left;text-align:center;background-color:#FFF2F2">
+            <br><br>
+            <div id="chart_div" style="margin:auto;width:90%;height:80vh"></div>
+        </div>
 
 
-
-
+    </a></div>
 
     <div class="container">
         
@@ -148,6 +155,29 @@
             </address>
         </div>
     </div>
+
+<script>
+    google.charts.load('current', {packages: ['corechart', 'bar']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart(){
+
+        var data = new google.visualization.arrayToDataTable([
+            ['Songs', 'View count'],
+            ['大齡女子', 61490000], ['相見恨晚', 51990000], ['走不回去的旅程', 6090000], ['回味', 5460000], ['走在紅毯那一天', 5100000], 
+            ['舊夢', 1630000], ['聽說愛情回來過', 1670000], ['死心眼', 1070000], ['說實話', 1010000]
+            ]);
+
+        var options = {
+            title: "Julia Peng's Music Video Views",
+            hAxis: { title: 'Songs'},
+            vAxis: {title: 'View count'}
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+
+    }
+</script>
 
 </body>
 </html>
